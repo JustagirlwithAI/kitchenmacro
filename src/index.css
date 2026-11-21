@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1B1716;
+  --color-gold: #F7B500;
+  --color-honey: #FCCF4D;
+  --color-butter: #FFE6A1;
+  --color-pale: #FFF5DA;
+  --color-cream: #FFFBF2;
+  --color-cherry: #C8102E;
+  --color-leaf: #15803d;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Bricolage Grotesque", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  -webkit-tap-highlight-color: transparent;
+}
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Printing: labels print alone via #print-root; the prep sheet prints the page minus chrome */
+#print-root { display: none; }
+@media print {
+  body { background: #fff; font-size: 13px; }
+  body.print-portal #app { display: none !important; }
+  body.print-portal #print-root { display: block; }
+  .no-print { display: none !important; }
+  .print-break-avoid { break-inside: avoid; }
+  @page { margin: 10mm; }
+}
